@@ -1,10 +1,10 @@
-import styles from "./Hello.module.css";
 import { useState } from "react";
 
 
-const Hello = () => {
-
+const Hello = (props) => {
+    
     const [name, setName] = useState('Mike');
+    const msg = props.age >19 ? "성인 입니다.":"미성년자 입니다.";
 
     function changeName(){
         setName(name === "Mike"? "Jane":"Mike");
@@ -12,7 +12,7 @@ const Hello = () => {
 
     return(
         <div>
-            <h2 id='name'>{name}</h2>
+            <h2 id='name'>{name}({props.age}) : {msg},{props.price}</h2>
             <button onClick={changeName}>Change</button>
         </div>
     )
